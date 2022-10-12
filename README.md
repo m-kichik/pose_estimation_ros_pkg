@@ -1,5 +1,6 @@
-Этот репозиторий содержит package для pose estimation с использованием YOLOv7
+Этот репозиторий содержит package для pose estimation с использованием [YOLOv7](https://github.com/WongKinYiu/yolov7)
 
+Шаг номер 0
 ```
 source /opt/ros/<your distro name>/setup.bash
 ```
@@ -35,7 +36,7 @@ cd ~/catkin_ws/
 catkin_make
 ```
 
-Теперь в файлах image_publisher.py и yolov7_node.py необходимо отредактировать первую строку: нужно добавить путь к вашему интерпретатору, куда необходимо также поставить библиотеки из yolov7/requirements.txt (pip install -r /<path to file>/requirements.txt)
+Теперь в файлах image_publisher.py и yolov7_node.py необходимо отредактировать первую строку: нужно добавить путь к вашему интерпретатору, куда необходимо также поставить библиотеки из yolov7/requirements.txt (```pip install -r /<path to file>/requirements.txt```)
 
 ## Запуск узлов
 Первый терминал:
