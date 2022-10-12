@@ -1,4 +1,4 @@
-Этот репозиторий содержит package для pose estimation с использованием [YOLOv7](https://github.com/WongKinYiu/yolov7)
+Этот репозиторий содержит ros package для определения позы человека (людей) с использованием [YOLOv7](https://github.com/WongKinYiu/yolov7)
 
 ### Шаг номер 0
 ```
