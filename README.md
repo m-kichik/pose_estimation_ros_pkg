@@ -1,6 +1,6 @@
 Этот репозиторий содержит package для pose estimation с использованием [YOLOv7](https://github.com/WongKinYiu/yolov7)
 
-Шаг номер 0
+### Шаг номер 0
 ```
 source /opt/ros/<your distro name>/setup.bash
 ```
