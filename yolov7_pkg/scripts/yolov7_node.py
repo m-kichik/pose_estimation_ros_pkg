@@ -34,6 +34,56 @@ def visualize(output, image):
     return nimg
 
 
+def output2dict(output):
+    dets = []
+    for det in output:
+        dets.append({'nose': det[7:10],
+                     'right eye': det[10:13],
+                     'left eye': det[13:16],
+                     'right ear': det[16:19],
+                     'left ear': det[19:22],
+                     'right shoulder': det[22:25],
+                     'left shoulder': det[25:28],
+                     'right elbow': det[28:31],
+                     'left elbow': det[31:34],
+                     'right hand': det[34:37],
+                     'left hand': det[37:40],
+                     'right hip': det[40:43],
+                     'left hip': det[43:46],
+                     'right knee': det[46:49],
+                     'left knee': det[49:52],
+                     'right foot': det[52:55],
+                     'left foot': det[55:58],
+                     })
+    return dets
+
+
+def plot_hand_kpts(im, output_dict):
+    kpt_color = (0, 0, 240)
+    radius = 7
+
+    right_x, right_y, right_conf = output_dict['right hand']
+    left_x, left_y, left_conf = output_dict['left hand']
+
+    if right_conf >= 0.5:
+        cv2.circle(im, (int(right_x), int(right_y)), radius, kpt_color, -1)
+
+    if left_conf >= 0.5:
+        cv2.circle(im, (int(left_x), int(left_y)), radius, kpt_color, -1)
+
+
+def draw_hand_detections(image, output_dict):
+    nimg = image[0].permute(1, 2, 0) * 255
+    nimg = nimg.cpu().numpy().astype(np.uint8)
+    nimg = cv2.cvtColor(nimg, cv2.COLOR_RGB2BGR)
+    nimg = cv2.cvtColor(nimg, cv2.COLOR_BGR2RGB)
+
+    for idx in range(len(output_dict)):
+        plot_hand_kpts(nimg, output_dict[idx])
+
+    return nimg
+
+
 class Predictor():
     """
     Predict pose with YOLOv7 (cv2 image required)
