@@ -23,6 +23,12 @@ chmod +x image_publisher.py
 chmod +x yolov7_node.py
 ```
 
+### Клонирование YOLOv7
+```
+cd ~/catkin_ws/src/yolov7_pkg/scripts/
+git clone https://github.com/WongKinYiu/yolov7
+```
+
 ### Создание папки для весов модели
 ```
 cd ~/catkin_ws/src/yolov7_pkg/
